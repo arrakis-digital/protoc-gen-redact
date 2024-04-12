@@ -3,15 +3,18 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/arrakis-digital/protoc-gen-redact/examples/user/pb"
-	"github.com/arrakis-digital/protoc-gen-redact/redact"
+	"net"
+	"os"
+	"os/signal"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
-	"net"
-	"os"
-	"os/signal"
+
+	"github.com/arrakis-digital/protoc-gen-redact/redact"
+
+	"github.com/arrakis-digital/protoc-gen-redact/examples/user/pb"
 )
 
 func RunServer() (*grpc.Server, <-chan struct{}) {
@@ -54,7 +57,6 @@ func RunClient(ctx context.Context) (*grpc.ClientConn, error) {
 }
 
 func TestClient(ctx context.Context, cli pb.ChatClient) error {
-
 	dummy := &pb.User{
 		Username: "one",
 		Password: "password",
