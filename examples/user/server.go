@@ -3,7 +3,7 @@ package main
 import (
 	context "context"
 	"encoding/json"
-	"github.com/Shivam010/protoc-gen-redact/examples/user/pb"
+	"github.com/arrakis-digital/protoc-gen-redact/examples/user/pb"
 	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

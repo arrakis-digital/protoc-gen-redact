@@ -1,4 +1,4 @@
-module github.com/Shivam010/protoc-gen-redact
+module github.com/arrakis-digital/protoc-gen-redact
 
 go 1.15
 

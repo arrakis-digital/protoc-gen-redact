@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Shivam010/protoc-gen-redact/redact"
+	"github.com/arrakis-digital/protoc-gen-redact/redact"
 	pgs "github.com/lyft/protoc-gen-star"
 	"google.golang.org/grpc/codes"
 	"strings"

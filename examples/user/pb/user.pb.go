@@ -7,7 +7,7 @@
 package pb
 
 import (
-	_ "github.com/Shivam010/protoc-gen-redact/redact"
+	_ "github.com/arrakis-digital/protoc-gen-redact/redact"
 	proto "github.com/golang/protobuf/proto"
 	empty "github.com/golang/protobuf/ptypes/empty"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
