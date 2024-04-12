@@ -76,7 +76,7 @@ var (
 
 {{ range $msg := $data.Messages }}
 	// Redact method implementation for {{ $msg.Name }}
-	func (x *{{ $msg.Name }}) Redact() {
+	func (x *{{ $msg.Name }}) Redact() string {
 		{{- if $msg.Ignore }}
 			// Ignoring message
 		{{- else if $msg.ToEmpty }}
@@ -116,5 +116,6 @@ var (
 				{{- end }}
 			{{- end }}
 		{{- end }}
+    return x.String()
 	}
 {{ end }}
