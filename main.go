@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/lyft/protoc-gen-star"
+	pgs "github.com/lyft/protoc-gen-star"
 	pgsGo "github.com/lyft/protoc-gen-star/lang/go"
 )
 

@@ -1,10 +1,12 @@
 package main
 
 import (
-	"github.com/arrakis-digital/protoc-gen-redact/redact"
+	"strings"
+
 	pgs "github.com/lyft/protoc-gen-star"
 	"google.golang.org/grpc/codes"
-	"strings"
+
+	"github.com/arrakis-digital/protoc-gen-redact/redact"
 )
 
 const (
@@ -64,7 +66,10 @@ func (m *Module) Process(file pgs.File) {
 
 // processService extracts all pgs.Service and their pgs.Method(s) information and
 // structures them into ServiceData
-func (m *Module) processService(srv pgs.Service, nameWithAlias func(n pgs.Entity) string) *ServiceData {
+func (m *Module) processService(
+	srv pgs.Service,
+	nameWithAlias func(n pgs.Entity) string,
+) *ServiceData {
 	srvData := &ServiceData{
 		Name:    m.ctx.Name(srv).String(),
 		Methods: make([]*MethodData, 0, len(srv.Methods())),
@@ -139,7 +144,11 @@ func (m *Module) processService(srv pgs.Service, nameWithAlias func(n pgs.Entity
 
 // processMessage extracts all pgs.Message and their pgs.Field(s) information and
 // structures them into MessageData
-func (m *Module) processMessage(msg pgs.Message, nameWithAlias func(n pgs.Entity) string, wantFields ...bool) *MessageData {
+func (m *Module) processMessage(
+	msg pgs.Message,
+	nameWithAlias func(n pgs.Entity) string,
+	wantFields ...bool,
+) *MessageData {
 	msgData := &MessageData{
 		Name:      m.ctx.Name(msg).String(),
 		WithAlias: nameWithAlias(msg),

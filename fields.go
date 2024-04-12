@@ -2,12 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/arrakis-digital/protoc-gen-redact/redact"
+
 	pgs "github.com/lyft/protoc-gen-star"
+
+	"github.com/arrakis-digital/protoc-gen-redact/redact"
 )
 
 // processFields extracts each fields information
-func (m *Module) processFields(field pgs.Field, nameWithAlias func(n pgs.Entity) string) *FieldData {
+func (m *Module) processFields(
+	field pgs.Field,
+	nameWithAlias func(n pgs.Entity) string,
+) *FieldData {
 	typ := field.Type()
 	flData := &FieldData{
 		Name:       m.ctx.Name(field).String(),
@@ -60,7 +65,11 @@ func (m *Module) processFields(field pgs.Field, nameWithAlias func(n pgs.Entity)
 	return flData
 }
 
-func (m *Module) redactedCustomValue(flData *FieldData, field pgs.Field, fieldRules *redact.FieldRules) {
+func (m *Module) redactedCustomValue(
+	flData *FieldData,
+	field pgs.Field,
+	fieldRules *redact.FieldRules,
+) {
 	typ := field.Type()
 	// extract rule information
 	info := m.RuleInformation(fieldRules)
@@ -85,7 +94,7 @@ func (m *Module) redactedCustomValue(flData *FieldData, field pgs.Field, fieldRu
 		// default value is nil
 		flData.RedactionValue = `nil`
 		if rule.Empty {
-			//flData.RedactionValue = m.ctx.Type(field).String() + "{}"
+			// flData.RedactionValue = m.ctx.Type(field).String() + "{}"
 			flData.RedactionValue = fmt.Sprintf("&%s{}", flData.EmbedMessageNameWithAlias)
 			return
 		}
@@ -128,8 +137,10 @@ func (m *Module) redactedCustomValue(flData *FieldData, field pgs.Field, fieldRu
 	}
 	if rules := rule.Item; rules != nil && rules.Values != nil {
 		if rules.GetElement() != nil {
-			m.Failf("Option provided to %s is invalid, '(redact.custom).element.item.element...' is not possible",
-				field.FullyQualifiedName())
+			m.Failf(
+				"Option provided to %s is invalid, '(redact.custom).element.item.element...' is not possible",
+				field.FullyQualifiedName(),
+			)
 		}
 		info := m.RuleInformation(rules)
 		// match types
@@ -148,7 +159,7 @@ func (m *Module) redactedCustomValue(flData *FieldData, field pgs.Field, fieldRu
 			rule := rules.Values.(*redact.FieldRules_Message).Message
 			flData.RedactionValue = `nil`
 			if rule.Empty {
-				//flData.RedactionValue = m.ctx.Type(field).String() + "{}"
+				// flData.RedactionValue = m.ctx.Type(field).String() + "{}"
 				flData.RedactionValue = fmt.Sprintf("&%s{}", flData.EmbedMessageNameWithAlias)
 				return
 			}

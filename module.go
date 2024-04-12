@@ -1,9 +1,10 @@
 package main
 
 import (
+	"text/template"
+
 	pgs "github.com/lyft/protoc-gen-star"
 	pgsGo "github.com/lyft/protoc-gen-star/lang/go"
-	"text/template"
 )
 
 // Redactor returns the implementation of the protoc-gen-redact plugin

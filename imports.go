@@ -9,10 +9,10 @@ import (
 // unique alias for imports
 func (m *Module) importPaths(file pgs.File) (path2Alias, alias2Path map[string]string) {
 	path2Alias = map[string]string{
-		"context":                                       "context",
-		"google.golang.org/grpc":                        "grpc",
-		"google.golang.org/grpc/codes":                  "codes",
-		"google.golang.org/grpc/status":                 "status",
+		"context":                       "context",
+		"google.golang.org/grpc":        "grpc",
+		"google.golang.org/grpc/codes":  "codes",
+		"google.golang.org/grpc/status": "status",
 		"github.com/arrakis-digital/protoc-gen-redact/redact": "redact",
 	}
 	alias2Path = map[string]string{

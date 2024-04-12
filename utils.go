@@ -21,13 +21,13 @@ func (m *Module) failWithInvalidType(field pgs.Field) {
 
 // RedactionDefaults returns the default value that can be used for the input
 // pgs.Field for redaction. Predefined reduction defaults are:
-//  * `0` for any number type
-//  * `"REDACTED"` for string type
-//  * `nil` for byte type
-//  * `0th value` for enum type
-//  * `nil` map for map type
-//  * `nil` for repeated field type
-//  * for message type, redaction is applied inside the message type
+//   - `0` for any number type
+//   - `"REDACTED"` for string type
+//   - `nil` for byte type
+//   - `0th value` for enum type
+//   - `nil` map for map type
+//   - `nil` for repeated field type
+//   - for message type, redaction is applied inside the message type
 func RedactionDefaults(typ pgs.ProtoType, isRepeated bool) string {
 	// isRepeated fields is for map or slice type fields
 	if isRepeated {
