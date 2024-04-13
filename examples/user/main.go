@@ -12,7 +12,7 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/arrakis-digital/protoc-gen-redact/v3/redact"
+	"github.com/arrakis-digital/protoc-gen-redact/v3/redact/v3"
 
 	"github.com/arrakis-digital/protoc-gen-redact/v3/examples/user/pb"
 )

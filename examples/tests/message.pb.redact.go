@@ -5,7 +5,7 @@ package tests
 
 import (
 	context "context"
-	redact "github.com/arrakis-digital/protoc-gen-redact/v3/redact"
+	redact "github.com/arrakis-digital/protoc-gen-redact/v3/redact/v3"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
