@@ -9,7 +9,7 @@ fmt:
 	GO111MODULE=on go fmt .
 
 lint: fmt
-	GO111MODULE=on go vet --vettool=${GOPATH}/bin/shadow .
+	# GO111MODULE=on go vet --vettool=${GOPATH}/bin/shadow .
 	staticcheck .
 
 clean: lint

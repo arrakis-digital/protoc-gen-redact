@@ -1,4 +1,4 @@
-module github.com/arrakis-digital/protoc-gen-redact
+module github.com/arrakis-digital/protoc-gen-redact/v2
 
 go 1.22.2
 

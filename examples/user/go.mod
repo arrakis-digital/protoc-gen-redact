@@ -1,9 +1,9 @@
-module github.com/arrakis-digital/protoc-gen-redact/examples/user
+module github.com/arrakis-digital/protoc-gen-redact/v2/examples/user
 
 go 1.22.2
 
 require (
-	github.com/arrakis-digital/protoc-gen-redact v0.0.0-00010101000000-000000000000
+	github.com/arrakis-digital/protoc-gen-redact/v2 v0.0.0-00010101000000-000000000000
 	github.com/golang/protobuf v1.5.4
 	google.golang.org/grpc v1.63.2
 	google.golang.org/protobuf v1.33.0
@@ -16,4 +16,4 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240401170217-c3f982113cda // indirect
 )
 
-replace github.com/arrakis-digital/protoc-gen-redact => ../..
+replace github.com/arrakis-digital/protoc-gen-redact/v2 => ../..

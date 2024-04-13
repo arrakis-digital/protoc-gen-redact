@@ -5,7 +5,7 @@ import (
 
 	pgs "github.com/lyft/protoc-gen-star"
 
-	"github.com/arrakis-digital/protoc-gen-redact/redact"
+	"github.com/arrakis-digital/protoc-gen-redact/v2/redact"
 )
 
 // processFields extracts each fields information

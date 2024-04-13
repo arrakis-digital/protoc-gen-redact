@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/arrakis-digital/protoc-gen-redact/examples/user/pb"
+	"github.com/arrakis-digital/protoc-gen-redact/v2/examples/user/pb"
 )
 
 var errNotFound = status.Error(codes.NotFound, "User not found")
