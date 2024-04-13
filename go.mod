@@ -4,7 +4,7 @@ go 1.22.2
 
 require (
 	github.com/golang/protobuf v1.5.4
-	github.com/lyft/protoc-gen-star v0.6.2
+	github.com/lyft/protoc-gen-star/v2 v2.0.3
 	google.golang.org/grpc v1.63.2
 	google.golang.org/protobuf v1.33.0
 )

@@ -3,7 +3,7 @@ package main
 import (
 	"strings"
 
-	pgs "github.com/lyft/protoc-gen-star"
+	pgs "github.com/lyft/protoc-gen-star/v2"
 	"google.golang.org/grpc/codes"
 
 	"github.com/arrakis-digital/protoc-gen-redact/v2/redact"

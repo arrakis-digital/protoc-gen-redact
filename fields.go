@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	pgs "github.com/lyft/protoc-gen-star"
+	pgs "github.com/lyft/protoc-gen-star/v2"
 
 	"github.com/arrakis-digital/protoc-gen-redact/v2/redact"
 )

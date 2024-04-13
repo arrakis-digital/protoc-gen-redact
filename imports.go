@@ -1,8 +1,9 @@
 package main
 
 import (
-	pgs "github.com/lyft/protoc-gen-star"
 	"strconv"
+
+	pgs "github.com/lyft/protoc-gen-star/v2"
 )
 
 // importPaths extracts all the imports of the proto files and assign them
