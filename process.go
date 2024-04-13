@@ -6,7 +6,7 @@ import (
 	pgs "github.com/lyft/protoc-gen-star/v2"
 	"google.golang.org/grpc/codes"
 
-	"github.com/arrakis-digital/protoc-gen-redact/v3/redact"
+	"github.com/arrakis-digital/protoc-gen-redact/v3/redact/v3"
 )
 
 const (

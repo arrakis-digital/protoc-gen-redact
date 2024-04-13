@@ -3,7 +3,7 @@ generate:
 	 --go_out=:. \
 	 --go_opt=paths=source_relative \
 	 --plugin=${GOPATH}/bin/protoc-gen-go \
-	 redact/redact.proto
+	 redact/v3/redact.proto
 
 fmt:
 	GO111MODULE=on go fmt .
