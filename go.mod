@@ -1,9 +1,8 @@
-module github.com/arrakis-digital/protoc-gen-redact/v2
+module github.com/arrakis-digital/protoc-gen-redact/v3
 
 go 1.22.2
 
 require (
-	github.com/golang/protobuf v1.5.4
 	github.com/lyft/protoc-gen-star/v2 v2.0.3
 	google.golang.org/grpc v1.63.2
 	google.golang.org/protobuf v1.33.0

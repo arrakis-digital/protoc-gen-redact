@@ -23,7 +23,7 @@ examples: build
 	protoc -I . \
 	 --go_out=:. \
 	 --go_opt=paths=source_relative \
-	 --plugin=${GOPATH}/bin/version/v1.25.0/protoc-gen-go \
+	 --plugin=${GOPATH}/bin/protoc-gen-go \
 	 --go-grpc_out=:. \
 	 --go-grpc_opt=paths=source_relative \
 	 --redact_out=:. \

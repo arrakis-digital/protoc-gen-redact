@@ -50,6 +50,7 @@ type FieldData struct {
 	IsMap      bool // IsMap: true for Map types
 	IsRepeated bool // IsRepeated: true for Repeated types
 	IsMessage  bool // IsMessage: true for Message type(& not Repeated/Map)
+	IsOptional bool // IsOptional: true for optional types
 
 	// Iterate will only be used for Repeated/Map types and it specifies
 	// whether or not to iterate each entry to be redacted

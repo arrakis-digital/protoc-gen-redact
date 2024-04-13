@@ -5,7 +5,7 @@ import (
 
 	pgs "github.com/lyft/protoc-gen-star/v2"
 
-	"github.com/arrakis-digital/protoc-gen-redact/v2/redact"
+	"github.com/arrakis-digital/protoc-gen-redact/v3/redact"
 )
 
 // processFields extracts each fields information
@@ -19,6 +19,7 @@ func (m *Module) processFields(
 		IsMap:      typ.IsMap(),
 		IsRepeated: typ.IsRepeated(),
 		IsMessage:  typ.IsEmbed(),
+		IsOptional: typ.IsOptional(),
 	}
 	em := typ.Embed()
 	if em == nil {
@@ -33,8 +34,8 @@ func (m *Module) processFields(
 	}
 
 	_redact, fieldRules := false, &redact.FieldRules{}
-	ok := m.must(field.Extension(redact.E_Redact, &_redact))
-	ok = ok || m.must(field.Extension(redact.E_Custom, &fieldRules))
+	// ok := m.must(field.Extension(redact.E_Redact, &_redact))
+	ok := m.must(field.Extension(redact.E_Value, &fieldRules))
 
 	// safe field: no option is defined
 	if !ok {
@@ -50,7 +51,10 @@ func (m *Module) processFields(
 		}
 		// default rules will be used
 		flData.Redact = true
-		flData.RedactionValue = RedactionDefaults(typ.ProtoType(), typ.IsRepeated() || typ.IsMap())
+		flData.RedactionValue = RedactionDefaults(
+			typ.ProtoType(),
+			typ.IsRepeated() || typ.IsMap() || typ.IsOptional(),
+		)
 		if typ.IsEmbed() {
 			flData.NestedEmbedCall = true
 		}
@@ -59,7 +63,10 @@ func (m *Module) processFields(
 
 	// custom field rules are defined, hence prefill defaults
 	flData.Redact = true
-	flData.RedactionValue = RedactionDefaults(typ.ProtoType(), typ.IsRepeated() || typ.IsMap())
+	flData.RedactionValue = RedactionDefaults(
+		typ.ProtoType(),
+		typ.IsRepeated() || typ.IsMap() || typ.IsOptional(),
+	)
 	// custom values
 	m.redactedCustomValue(flData, field, fieldRules)
 	return flData

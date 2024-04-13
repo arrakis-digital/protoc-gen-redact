@@ -12,9 +12,9 @@ import (
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 
-	"github.com/arrakis-digital/protoc-gen-redact/v2/redact"
+	"github.com/arrakis-digital/protoc-gen-redact/v3/redact"
 
-	"github.com/arrakis-digital/protoc-gen-redact/v2/examples/user/pb"
+	"github.com/arrakis-digital/protoc-gen-redact/v3/examples/user/pb"
 )
 
 func RunServer() (*grpc.Server, <-chan struct{}) {

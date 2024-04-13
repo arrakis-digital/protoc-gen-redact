@@ -1,10 +1,10 @@
 protoc-gen-redact (PGR)
 =======================
-[![Build](https://github.com/arrakis-digital/protoc-gen-redact/v2/workflows/Build/badge.svg)](https://github.com/arrakis-digital/protoc-gen-redact/v2/actions?query=workflow%3ABuild)
-[![Go Report Card](https://goreportcard.com/badge/github.com/arrakis-digital/protoc-gen-redact/v2?dropcache)](https://goreportcard.com/report/github.com/arrakis-digital/protoc-gen-redact/v2)
-[![Go Reference](https://pkg.go.dev/badge/github.com/arrakis-digital/protoc-gen-redact/v2.svg)](https://pkg.go.dev/github.com/arrakis-digital/protoc-gen-redact/v2)
+[![Build](https://github.com/arrakis-digital/protoc-gen-redact/v3/workflows/Build/badge.svg)](https://github.com/arrakis-digital/protoc-gen-redact/v3/actions?query=workflow%3ABuild)
+[![Go Report Card](https://goreportcard.com/badge/github.com/arrakis-digital/protoc-gen-redact/v3?dropcache)](https://goreportcard.com/report/github.com/arrakis-digital/protoc-gen-redact/v3)
+[![Go Reference](https://pkg.go.dev/badge/github.com/arrakis-digital/protoc-gen-redact/v3.svg)](https://pkg.go.dev/github.com/arrakis-digital/protoc-gen-redact/v3)
 [![License](https://img.shields.io/badge/license-apache2-mildgreen.svg)](./LICENSE)
-[![GitHub release](https://img.shields.io/github/release/arrakis-digital/protoc-gen-redact.svg)](https://github.com/arrakis-digital/protoc-gen-redact/v2/releases)
+[![GitHub release](https://img.shields.io/github/release/arrakis-digital/protoc-gen-redact.svg)](https://github.com/arrakis-digital/protoc-gen-redact/v3/releases)
 
 _protoc-gen-redact (PGR)_ is a protoc plugin to redact field values in GRPC client calls from the server. This plugin
 adds support to protoc-generated code to redact certain fields in the GRPC calls.
@@ -19,7 +19,7 @@ package user;
 import "redact/redact.proto";
 import "google/protobuf/empty.proto";
 
-option go_package = "github.com/arrakis-digital/protoc-gen-redact/v2/examples/user/pb;user";
+option go_package = "github.com/arrakis-digital/protoc-gen-redact/v3/examples/user/pb;user";
 
 message User {
     // User credentials

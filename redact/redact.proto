@@ -5,7 +5,7 @@ package redact;
 
 import "google/protobuf/descriptor.proto";
 
-option go_package = "github.com/arrakis-digital/protoc-gen-redact/v2/redact;redact";
+option go_package = "github.com/arrakis-digital/protoc-gen-redact/v3/redact;redact";
 
 // Redaction rules applied at the file level
 extend google.protobuf.FileOptions {
@@ -67,11 +67,11 @@ extend google.protobuf.FieldOptions {
   //  * `nil` map for map type
   //  * `nil` for repeated field type
   //  * for message type, redaction is applied inside the message type
-  bool redact = 54123;
+  // bool redact = 54123;
   // Custom: specify the different values to be used for redaction on this field. By
   // default, if Custom value is not defined Redact should be true to apply redaction.
   // And if Custom value is to be assigned, one can skip the Redact field.
-  FieldRules custom = 54124;
+  FieldRules value = 54123;
 }
 
 // FieldRules encapsulates options to change the redacted values of any type of field.

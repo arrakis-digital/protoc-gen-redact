@@ -5,11 +5,11 @@ package pb
 
 import (
 	context "context"
-	redact "github.com/arrakis-digital/protoc-gen-redact/v2/redact"
-	empty "github.com/golang/protobuf/ptypes/empty"
+	redact "github.com/arrakis-digital/protoc-gen-redact/v3/redact"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -19,8 +19,8 @@ var (
 	_ redact.Redactor
 	_ codes.Code
 	_ status.Status
+	_ emptypb.Empty
 	_ redact.FieldRules
-	_ empty.Empty
 )
 
 // RegisterRedactedChatServer wraps the ChatServer with the redacted server and registers the service in GRPC
@@ -60,7 +60,7 @@ func (s *redactedChatServer) GetUser(ctx context.Context, in *GetUserRequest) (*
 }
 
 // ListUsers is the redacted wrapper for the actual ChatServer.ListUsers method
-func (s *redactedChatServer) ListUsers(ctx context.Context, in *empty.Empty) (*ListUsersResponse, error) {
+func (s *redactedChatServer) ListUsers(ctx context.Context, in *emptypb.Empty) (*ListUsersResponse, error) {
 	if s.bypass.CheckInternal(ctx) {
 		return s.srv.ListUsers(ctx, in)
 	}
@@ -68,15 +68,15 @@ func (s *redactedChatServer) ListUsers(ctx context.Context, in *empty.Empty) (*L
 }
 
 // Redact method implementation for User
-func (x *User) Redact() {
+func (x *User) Redact() string {
 	if x == nil {
-		return
+		return ""
 	}
 
 	// Safe field: Username
 
 	// Redacting field: Password
-	x.Password = "REDACTED"
+	x.Password = ``
 
 	// Redacting field: Email
 	x.Email = `r*d@ct*d`
@@ -84,33 +84,39 @@ func (x *User) Redact() {
 	// Safe field: Name
 
 	// Safe field: Home
+
+	// Safe field: Opt
+	return x.String()
 }
 
 // Redact method implementation for GetUserRequest
-func (x *GetUserRequest) Redact() {
+func (x *GetUserRequest) Redact() string {
 	if x == nil {
-		return
+		return ""
 	}
 
 	// Safe field: Username
+	return x.String()
 }
 
 // Redact method implementation for ListUsersResponse
-func (x *ListUsersResponse) Redact() {
+func (x *ListUsersResponse) Redact() string {
 	if x == nil {
-		return
+		return ""
 	}
 
 	// Safe field: Users
+	return x.String()
 }
 
 // Redact method implementation for User_Location
-func (x *User_Location) Redact() {
+func (x *User_Location) Redact() string {
 	if x == nil {
-		return
+		return ""
 	}
 
 	// Safe field: Lat
 
 	// Safe field: Lng
+	return x.String()
 }

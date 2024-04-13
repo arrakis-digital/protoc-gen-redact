@@ -84,7 +84,7 @@ var (
 		{{- else if $msg.ToNil }}
 			// Message will be set to nil, ignoring all field level rules
 		{{- else }}
-			if x == nil { return }
+			if x == nil { return "" }
 			{{- range $field := $msg.Fields }}
 				{{ if $field.Redact }}
 					// Redacting field: {{ $field.Name }}
