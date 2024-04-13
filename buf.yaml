@@ -1,0 +1,8 @@
+version: v1
+name: buf.build/arrakis-digital/redact
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
